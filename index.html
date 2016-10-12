@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Trump Republicans</title>
+        <meta name="author" content="Alex Abrahams">
+        <meta name="description" content="A list of elected Republicans who support and/or currently endorse Donald Trump for President of the United States. Naming and shaming.">
+
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- CSV to Table by Derek Eder CSS -->
+        <link href="css/dataTables.bootstrap.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Bitter:400,700|Slabo+27px' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="icon" sizes="16x16 32x32 64x64" href="images/favicon.ico">
+        <link rel="icon" type="image/png" sizes="196x196" href="images/favicon-192.png">
+        <link rel="icon" type="image/png" sizes="160x160" href="images/favicon-160.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96.png">
+        <link rel="icon" type="image/png" sizes="64x64" href="images/favicon-64.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+        <link rel="apple-touch-icon" href="images/favicon-57.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/favicon-114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/favicon-72.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="images/favicon-144.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="images/favicon-60.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="images/favicon-120.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="images/favicon-76.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="images/favicon-152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+        <meta name="msapplication-TileColor" content="#FFFFFF">
+        <meta name="msapplication-TileImage" content="images/favicon-144.png">
+        <meta name="msapplication-config" content="images/browserconfig.xml">
+
+    </head>
+    <body>
+        <header>
+            <hr>
+            <h1>Trump Republicans</h1>
+            <hr>
+            <h4>
+                Republicans and their positions on their presidential nominee, Donald Trump.
+            </h4>
+            <hr>
+            <div id="quotes"></div>
+            <div id="intro">
+                <hr>
+                <p>If a race is competitive, there is a link to support the Democrat running against the Republican. </p>
+                <p>
+                    At the bottom of this page is a button to download this data as a CSV (spreadsheet).
+                </p>
+                <a href="https://twitter.com/Alex_Abes" target="_blank" class="btn btn-default tweeter" role="button">Have a question or suggestion? Tweet me. </a>
+                <p><em> <a href="about.html">More about this data.</a> </em> </p>
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            <div id='table-container'></div>
+        </div>
+
+        <script type="text/javascript">
+            (function() {
+                var quotes = [
+                {
+                    text: "\"The question they have to ask themselves is: If you are repeatedly having to say in very strong terms that what he has said is unacceptable, why are you still endorsing him?\"",
+                    quoted: "President Barack Obama",
+                    link: "http://www.nytimes.com/2016/08/03/us/politics/president-obama-donald-trump.html?hp&action=click&pgtype=Homepage&clickSource=story-heading&module=first-column-region&region=top-news&WT.nav=top-news"
+                },
+                {
+                    text: "\"I almost don’t blame Trump. He is a morally untethered, spiritually vacuous man who appears haunted by multiple personality disorders. It is the “sane” and “reasonable” Republicans who deserve the shame — the ones who stood silently by, or worse, while Donald Trump gave away their party’s sacred inheritance.\"",
+                    quoted: "NYTimes columnist David Brooks",
+                    link: "http://www.nytimes.com/2016/07/29/opinion/the-democrats-win-the-summer.html?_r=1"
+                },
+                {
+                    text:"\"If your member of Congress is supporting Donald Trump instead ask yourself this: What does that say about their leadership, their character, their values? If they won't even stand up to Donald Trump, what makes you think they will stand up for you and your family?\"",
+                    quoted: "Rep. Ben Ray Lujan (D-NM)",
+                    link: "http://www.latimes.com/politics/la-pol-sac-essential-politics-updates-california-republican-in-swing-1470169943-htmlstory.html"
+                }
+                ];
+              var quote = quotes[Math.floor(Math.random() * quotes.length)];
+              document.getElementById("quotes").innerHTML =
+                '<p>' + quote.text + '</p>' + '<br>' +
+                '<a href=\"' + quote.link + "\" target=\"_blank\">" + '- ' + quote.quoted + '</a>';
+
+            })();
+        </script>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.csv.min.js"></script>
+        <script src="js/jquery.dataTables.min.js"></script>
+        <script src="js/dataTables.bootstrap.js"></script>
+        <script src='js/csv_to_html_table.js'></script>
+
+        <script>
+          function format_link(link){
+            if (link)
+              return "<a href='" + link + "' target='_blank'>" + "Dem Candidate Website" + "</a>";
+            else
+              return "";
+          }
+
+          function source_link(cell_value){
+            if (cell_value)
+              return "<a href='" + cell_value + "' target='_blank'>" + "Source" + "</a>";
+            else
+              return "Unknown"
+          }
+
+          CsvToHtmlTable.init({
+            csv_path: 'data/all_gop.csv', 
+            element: 'table-container', 
+            allow_download: true,
+            csv_options: {separator: ',', delimiter: '"'},
+            datatables_options: {"paging": false},
+            custom_formatting: [[8, source_link], [11, format_link]]
+          });
+        </script>
+        
+        <footer class="site-footer" id="footer">
+            <hr>
+            <p>Feel free to <a href="https://twitter.com/Alex_Abes" target="_blank">tweet</a> me any comments.</p>
+            <p>&copy; Alex Abrahams 2016</p>
+            <p>Credit for the searchable, filterable table goes to <a href="https://github.com/derekeder/csv-to-html-table" target="_blank">Derek Eder</a>.</p>
+        </footer>
+    </body>
+</html>
